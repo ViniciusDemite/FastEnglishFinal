@@ -15,29 +15,31 @@
   
 
   <ion-content>
-      <form>
-        <ion-list>
+      <form method="POST" #form="ngForm" (submit)="login_professor(form)">
+        <ion-list inset no-lines>
     
           <ion-item>
-            <ion-label floating >User</ion-label>
-            <ion-input name="email"  type="email"  required></ion-input>
+            <ion-label for="email" floating ><ion-icon name="mail"></ion-icon> E-mail</ion-label>
+            <ion-input name="email" id="email"  type="email"  required ngModel></ion-input>
           </ion-item>
     
           <ion-item>
-            <ion-label floating >Password</ion-label>
-            <ion-input name="senha" type="password" required></ion-input>
+            <ion-label id="senha" floating ><ion-icon name="key"></ion-icon> Password</ion-label>
+            <ion-input name="senha" id="senha" type="password" required ngModel></ion-input>
           </ion-item>
-    
-        <div padding>
-        <button round ion-button block color="danger" >Login</button>
-        </div>
-    
-        
-    
+          
         </ion-list>
+
+        <ion-buttons margin-vertical end>
+          <button type="button" ion-button clear small no-margin text-lowercase color="dark" (click)="recuperar_senha(form)">Forgot your
+            password?</button>
+        </ion-buttons>
+
+        <ion-buttons>
+          <button type="submit" no-margin block round ion-button color="danger">Login</button>
+        </ion-buttons>
     
       </form>
-    
     
     </ion-content>
     

@@ -6,9 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import {StudentloginPage} from '../pages/studentlogin/studentlogin';
-import {InitialpagePage} from '../pages/initialpage/initialpage';
+import { InitialpagePage } from '../pages/initialpage/initialpage';
 import {SignupPage} from '../pages/signup/signup';
-import {ForgotpasswordPage} from  '../pages/forgotpassword/forgotpassword';
 import {HomeStudentPage}  from '../pages/home-student/home-student';
 import {ProfessorLoginPage} from '../pages/professor-login/professor-login';
 
@@ -42,7 +41,6 @@ const config = {
     StudentloginPage,
     InitialpagePage,
     SignupPage,
-    ForgotpasswordPage,
     HomeStudentPage,
     ProfessorLoginPage
   ],
@@ -64,7 +62,6 @@ const config = {
     StudentloginPage,
     InitialpagePage,
     SignupPage,
-    ForgotpasswordPage,
     HomeStudentPage,
     ProfessorLoginPage
     

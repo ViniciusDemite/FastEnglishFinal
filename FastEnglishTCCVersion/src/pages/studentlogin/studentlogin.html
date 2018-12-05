@@ -1,4 +1,3 @@
-
 <ion-header>
 	<ion-navbar color="danger">
 		<ion-title>Student Login</ion-title>
@@ -8,35 +7,34 @@
 
 
 <ion-content>
-	<form #form="ngForm" (submit)="login(form)">
-		<ion-list>
+	<form method="POST" #form="ngForm" (submit)="login(form)">
+		<ion-list inset no-lines>
 
 			<ion-item>
-				<ion-label floating >User</ion-label>
-				<ion-input name="email"  type="email" ngModel required></ion-input>
+				<ion-label floating><ion-icon name="mail"></ion-icon> E-mail</ion-label>
+				<ion-input name="email"  type="email" required ngModel></ion-input>
 			</ion-item>
 
 			<ion-item>
-				<ion-label floating >Password</ion-label>
-				<ion-input name="senha" type="password" ngModel required></ion-input>
+				<ion-label floating><ion-icon name="key"></ion-icon> Password</ion-label>
+				<ion-input name="senha" type="password" required ngModel></ion-input>
 			</ion-item>
 
-		
+		</ion-list>
 
+		<ion-buttons margin-vertical end>
+			<button type="button" ion-button clear no-margin text-lowercase color="dark" (click)="recuperar_senha(form)">
+				forgot your password?
+			</button>
+		</ion-buttons>
 
-    <div padding>
-		<button (click)="login()" round ion-button block color="danger" >Login</button>
-    </div>
-
-    
-
-    </ion-list>
+		<ion-buttons>
+			<button type="submit" ion-button block round no-margin color="danger">Login</button>
+		</ion-buttons>
 
 	</form>
 
-  <div padding>
-       <a (click)="forgotpass()">forgot your password?</a>
-    </div>
+  	
 
 </ion-content>
 

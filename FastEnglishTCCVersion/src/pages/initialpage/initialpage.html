@@ -1,24 +1,27 @@
-<!--
-  Generated template for the InitialpagePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header > 
   <ion-navbar color="danger">
-    <p align="right"> <ion-icon class="adm-login" name="lock" (click)="login_professor()"></ion-icon></p>
-     
+
+    <ion-title>
+      <h3 no-margin text-capitalize>fast english</h3>
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goto_login_professor()">
+        <ion-icon name="lock"></ion-icon>
+      </button>
+    </ion-buttons>
+    
   </ion-navbar>
 </ion-header>
+
 <ion-content padding class="inicial">
   <ion-card>
      
     <ion-card-content >
-        <button ion-button  block color="danger" (click)="signup()" round>Begin Now</button>
-        <button ion-button block color="danger" (click)="login()" clear>I have an acoount</button>
+        <button type="button" ion-button block round color="danger" (click)="goto_student_signup()">Begin Now</button>
+        <button type="button" ion-button block clear color="danger" (click)="goto_login()">I have an acoount</button>
     </ion-card-content>
+
   </ion-card>
-
-
-
+  
 </ion-content>

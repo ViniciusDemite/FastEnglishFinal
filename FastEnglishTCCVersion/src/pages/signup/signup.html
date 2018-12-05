@@ -1,9 +1,3 @@
-<!--
-  Generated template for the SignupPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="danger">
@@ -14,41 +8,30 @@
 
 
 <ion-content>
-	<form >
-		<ion-list>
+	<form method="POST" #form="ngForm" (submit)="cad_estudante(form)">
+		<ion-list inset no-lines>
 
-      	<ion-item>
-            <ion-label floating >Complete Name</ion-label>
-            <ion-input name="name"  type="text" ></ion-input>
-          </ion-item>
-
-			<ion-item>
-				<ion-label floating >Email</ion-label>
-				<ion-input name="email"  type="email" ></ion-input>
-			</ion-item>
-
-			<ion-item>
-				<ion-label floating >Password</ion-label>
-				<ion-input name="senha"  type="password" ></ion-input>
-      </ion-item>
-      
       <ion-item>
-          <ion-label floating >Confirm Password</ion-label>
-          <ion-input name="confir_senha"  type="password" ></ion-input>
-        </ion-item>
+        <ion-label for="nome" floating><ion-icon name="person"></ion-icon> Complete Name</ion-label>
+        <ion-input name="name" id="nome" type="text" required ngModel></ion-input>
+      </ion-item>
 
-		
+    <ion-item>
+      <ion-label for="email" floating><ion-icon name="mail"></ion-icon> Email</ion-label>
+      <ion-input name="email" id="email" type="email" ngModel></ion-input>
+    </ion-item>
 
-
-    <div padding>
-		<button  round ion-button block color="danger">Register</button>
-    </div>
-
-    
+    <ion-item>
+      <ion-label for="senha" floating><ion-icon name="key"></ion-icon> Password</ion-label>
+      <ion-input name="senha" id="senha" type="password" ngModel></ion-input>
+    </ion-item>
 
     </ion-list>
+    
+    <ion-buttons>
+      <button type="submit" ion-button block round no-margin color="danger">Register</button>
+    </ion-buttons>
 
 	</form>
-
 
 </ion-content>
