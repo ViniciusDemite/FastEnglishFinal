@@ -1,0 +1,42 @@
+
+<ion-header>
+	<ion-navbar color="danger">
+		<ion-title>Student Login</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+	<form #form="ngForm" (submit)="login(form)">
+		<ion-list>
+
+			<ion-item>
+				<ion-label floating >User</ion-label>
+				<ion-input name="email"  type="email" ngModel required></ion-input>
+			</ion-item>
+
+			<ion-item>
+				<ion-label floating >Password</ion-label>
+				<ion-input name="senha" type="password" ngModel required></ion-input>
+			</ion-item>
+
+		
+
+
+    <div padding>
+		<button (click)="login()" round ion-button block color="danger" >Login</button>
+    </div>
+
+    
+
+    </ion-list>
+
+	</form>
+
+  <div padding>
+       <a (click)="forgotpass()">forgot your password?</a>
+    </div>
+
+</ion-content>
+
