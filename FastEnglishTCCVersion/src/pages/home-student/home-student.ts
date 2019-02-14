@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 /**
  * Generated class for the HomeStudentPage page.
@@ -14,11 +15,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class HomeStudentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomeStudentPage');
+  public logout(): void{
+    this.afAuth.auth.signOut();
   }
 
 }

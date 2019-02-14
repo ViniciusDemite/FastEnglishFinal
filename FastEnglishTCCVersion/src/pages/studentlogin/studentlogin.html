@@ -7,7 +7,7 @@
 
 
 <ion-content>
-	<form method="POST" #form="ngForm" (submit)="login(form)">
+	<form method="POST" #form="ngForm" (submit)="login_estudante(form)">
 		<ion-list inset no-lines>
 
 			<ion-item>
@@ -23,7 +23,7 @@
 		</ion-list>
 
 		<ion-buttons margin-vertical end>
-			<button type="button" ion-button clear no-margin text-lowercase color="dark" (click)="recuperar_senha(form)">
+			<button type="button" ion-button clear no-margin text-lowercase color="dark" (click)="recuperar_senha()">
 				forgot your password?
 			</button>
 		</ion-buttons>
@@ -34,7 +34,4 @@
 
 	</form>
 
-  	
-
 </ion-content>
-

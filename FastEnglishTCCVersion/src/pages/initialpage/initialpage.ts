@@ -13,7 +13,7 @@ import {ProfessorLoginPage} from '../professor-login/professor-login';
   selector: 'page-initialpage',
   templateUrl: 'initialpage.html',
 })
-export class InitialpagePage {
+export class InitialPage {
 
   constructor(public navCtrl: NavController) {
   }

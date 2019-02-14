@@ -25,43 +25,72 @@ export class StudentloginPage {
   constructor(public navCtrl: NavController, private  afAuth: AngularFireAuth , private alertCtrl: AlertController, private db: AngularFirestore) {
   }
 
-  public recuperar_senha(form: NgForm): void{
+  // método - caixa de mensagem
+  public recuperar_senha(): void {
 
-    let email: string = form.value.email;
+    const prompt = this.alertCtrl.create({
 
-    let sub = this.db.collection('usuarios').doc<any>(this.afAuth.auth.currentUser.uid).valueChanges().subscribe((dadosUser) => {
+      message: "Informe seu e-mail e um código de verificação será enviado:",
 
-      let email_estudante: string = dadosUser.email;
-      sub.unsubscribe();
+      inputs: [{ name: 'email', placeholder: 'E-mail', type: "email" }],
 
-      if (email_estudante === email) {
+      // botões
+      buttons: [
 
-        this.afAuth.auth.sendPasswordResetEmail(email);
+        {
+          text: 'Voltar',
+          // handler: data => { console.log('Cancel clicked'); }
+        },
 
-        const alert = this.alertCtrl.create({
-          title: 'E-mail sent',
-          message: 'An reset password e-mail have been sent to your e-mail adress.',
-          buttons: ['OK']
-        });
-        alert.present();
+        {
+          text: 'Enviar',
+          handler: data => {
+            this.afAuth.auth.sendPasswordResetEmail(data.email);
+            alert('E-mail enviado com sucesso');
+            // console.log('Saved clicked');
+          }
+        }
 
-      } else {
-        const alert = this.alertCtrl.create({
-          title: 'Invalid e-mail',
-          message: 'Your e-mail is not valid, please check if you typed it correctly.',
-          buttons: ['Back']
-        });
-        alert.present();
-      }
+      ] // fechamento - botões
+    }); // fechamento - alert
+    prompt.present();
+  } // fechamento - prompt
 
-    });
-  }
+  // public recuperar_senha(form: NgForm): void{
 
-  public login_estudante(form: NgForm){
+  //   let email: string = form.value.email;
+
+  //   let sub = this.db.collection('usuarios').doc<any>(this.afAuth.auth.currentUser.uid).valueChanges().subscribe((dadosUser) => {
+
+  //     let email_estudante: string = dadosUser.email;
+
+  //     if (email_estudante === email) {
+
+  //       this.afAuth.auth.sendPasswordResetEmail(email);
+
+  //       const alert = this.alertCtrl.create({
+  //         title: 'E-mail sent',
+  //         message: 'An reset password e-mail have been sent to your e-mail adress.',
+  //         buttons: ['OK']
+  //       });
+  //       alert.present();
+
+  //     } else {
+  //       const alert = this.alertCtrl.create({
+  //         title: 'Invalid e-mail',
+  //         message: 'Your e-mail is not valid, please check if you typed it correctly.',
+  //         buttons: ['Back']
+  //       });
+  //       alert.present();
+  //     }
+  //     sub.unsubscribe();
+  //   });
+  // }
+
+  public login_estudante(form: NgForm): void{
 
     let email = form.value.email;
     let senha = form.value.senha;
-    
 
     this.afAuth.auth.signInWithEmailAndPassword(email, senha)
       .then(() => {
@@ -76,6 +105,6 @@ export class StudentloginPage {
           alert('User or Password not found');
         });
 
+    this.navCtrl.push(HomeStudentPage);
   }
-
 }
