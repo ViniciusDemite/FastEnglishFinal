@@ -9,7 +9,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Administrator Login</ion-title>
+      <ion-title no-margin text-capitalize>Administrator Login</ion-title>
     </ion-navbar>
   </ion-header>
   
@@ -39,6 +39,10 @@
           <button type="submit" no-margin block round ion-button color="danger">Login</button>
         </ion-buttons>
     
+        <ion-buttons margin-top>
+          <button type="button" no-margin block outline round ion-button color="danger" (click)="goto_sign_up()">Sign Up</button>
+        </ion-buttons>
+
       </form>
     
     </ion-content>

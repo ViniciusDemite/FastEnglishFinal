@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="danger">
+
+    <ion-title>
+      <h3 no-margin text-capitalize>fast english</h3>
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goto_professor_login()">
+        <ion-icon ios="ios-lock" md="md-lock"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="inicial">
+  <ion-card>
+
+    <ion-card-content>
+      <button type="button" ion-button block round color="danger" (click)="goto_estudante_cad()">Begin Now</button>
+      <button type="button" ion-button block clear color="danger" (click)="goto_estudante_login()">I have an acoount</button>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

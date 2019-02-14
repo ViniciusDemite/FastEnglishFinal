@@ -3,13 +3,11 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import {StudentloginPage} from '../pages/studentlogin/studentlogin';
-import { InitialPage } from '../pages/initialpage/initialpage';
-import {SignupPage} from '../pages/signup/signup';
-import {HomeStudentPage}  from '../pages/home-student/home-student';
-import {ProfessorLoginPage} from '../pages/professor-login/professor-login';
+import { EstudanteLoginPage } from '../pages/estudante-login/estudante-login';
+import { InicialPage } from '../pages/inicial/inicial';
+import { EstudanteCadPage } from '../pages/estudante-cad/estudante-cad';
+import { EstudanteHomePage }  from '../pages/estudante-home/estudante-home';
+import { ProfessorLoginPage } from '../pages/professor-login/professor-login';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -36,12 +34,10 @@ const config = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
-    StudentloginPage,
-    InitialPage,
-    SignupPage,
-    HomeStudentPage,
+    EstudanteLoginPage,
+    InicialPage,
+    EstudanteCadPage,
+    EstudanteHomePage,
     ProfessorLoginPage
   ],
   imports: [
@@ -57,12 +53,10 @@ const config = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
-    StudentloginPage,
-    InitialPage,
-    SignupPage,
-    HomeStudentPage,
+    EstudanteLoginPage,
+    InicialPage,
+    EstudanteCadPage,
+    EstudanteHomePage,
     ProfessorLoginPage
     
   ],

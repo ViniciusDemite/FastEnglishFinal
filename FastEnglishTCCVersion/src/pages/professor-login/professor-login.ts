@@ -56,4 +56,8 @@ export class ProfessorLoginPage {
 
   }
 
+  public goto_professor_login(): void{
+    this.navCtrl.push(ProfessorLoginPage);
+  }
+
 }
