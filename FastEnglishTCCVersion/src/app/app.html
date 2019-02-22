@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" swipeEnabled="false">
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title text-center>Fast English</ion-title>
@@ -15,8 +15,8 @@
 
   <ion-content >
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" text-uppercase>
+        <ion-icon name="{{p.icon}}" color="secondary" padding-right></ion-icon> {{p.title}}
       </button>
     </ion-list>
   </ion-content>

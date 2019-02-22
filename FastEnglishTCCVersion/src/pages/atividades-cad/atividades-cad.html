@@ -27,14 +27,16 @@
         <ion-label for="post_date" fixed>
           <ion-icon name="calendar" color="primary"></ion-icon> Post date
         </ion-label>
-        <ion-input name="dataPostada" id="post_date" type="date" required ngModel></ion-input>
+        <ion-datetime displayFormat="DD/MMM/YYYY" name="dataPostada" id="post_date" required ngModel></ion-datetime>
+        <!-- <ion-input name="dataPostada" id="post_date" type="date" required ngModel></ion-input> -->
       </ion-item>
   
       <ion-item>
-        <ion-label id="presentation_date" fixed>
+        <ion-label id="drop_date" fixed>
           <ion-icon name="calendar" color="primary"></ion-icon> Drop date
         </ion-label>
-        <ion-input name="dataEntrega" id="presentation_date" type="date" required ngModel></ion-input>
+        <ion-datetime displayFormat="DD/MMM/YYYY" name="dataEntrega" id="drop_date" required ngModel></ion-datetime>
+        <!-- <ion-input name="dataEntrega" id="presentation_date" type="date" required ngModel></ion-input> -->
       </ion-item>
   
       <ion-item>
@@ -55,7 +57,8 @@
         <ion-label id="activity_time" fixed>
           <ion-icon name="time" color="primary"></ion-icon> Time
         </ion-label>
-        <ion-input name="tempoAtividade" id="activity_time" type="time" required ngModel></ion-input>
+        <ion-datetime displayFormat="mm:ss" pickerFormat="mm ss" name="tempoAtividade" id="ativity_time" required ngModel></ion-datetime>
+        <!-- <ion-input name="tempoAtividade" id="activity_time" type="time" required ngModel></ion-input> -->
       </ion-item>
 
       <ion-item>
