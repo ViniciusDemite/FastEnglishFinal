@@ -3,6 +3,8 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ProfessorCadPage } from '../professor-cad/professor-cad';
+import { ProfessorHomePage } from '../professor-home/professor-home';
 
 @Component({
   selector: 'page-professor-login',
@@ -52,12 +54,9 @@ export class ProfessorLoginPage {
     let senha: string = form.value.senha;
 
     this.afAuth.auth.signInWithEmailAndPassword(email, senha)
-      .catch((error) => { alert(error) });
-
+      .then(() => { this.navCtrl.push(ProfessorHomePage); })
+      .catch(() => { alert('User or Password not found') });
   }
 
-  public goto_professor_login(): void{
-    this.navCtrl.push(ProfessorLoginPage);
-  }
-
+  public goto_professor_cad(): void { this.navCtrl.push(ProfessorCadPage) }
 }

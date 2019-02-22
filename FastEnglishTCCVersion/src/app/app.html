@@ -1,8 +1,16 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar color="danger">
-      <ion-title>Menu</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title text-center>Fast English</ion-title>
+      <ion-buttons end>
+      
+        <button ion-button (click)="logout()">
+          <ion-icon name="log-out" md="md-log-out" color="dark"></ion-icon>
+        </button>
+      
+      </ion-buttons>
     </ion-toolbar>
+    
   </ion-header>
 
   <ion-content >
@@ -15,5 +23,4 @@
 
 </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,16 +1,30 @@
 <ion-header>
-  <ion-navbar color="danger">
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Welcome to Fast English</ion-title>
+    <ion-title>Professor Area</ion-title>
+    <!-- <ion-buttons end>
+
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out" md="md-log-out" color="dark"></ion-icon>
+      </button>
+
+    </ion-buttons> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-
-
-
+  <ion-fab right bottom>
+    <button ion-fab type="button" color="dark" (click)="goto_atividades_cad()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
+
+<!-- <ion-tabs>
+  <ion-tab tabTitle="Activities" [root]="tab1" tabIcon="clipboard"></ion-tab>
+  <ion-tab tabTitle="Profile" [root]="tab2" tabIcon="person"></ion-tab>  
+</ion-tabs> -->

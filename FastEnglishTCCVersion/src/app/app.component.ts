@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { InicialPage } from '../pages/inicial/inicial';
-import { EstudanteHomePage } from '../pages/estudante-home/estudante-home';
+import { Nav } from 'ionic-angular';
+import { ProfessorHomePage } from "../pages/professor-home/professor-home";
 
 
 @Component({
@@ -11,23 +11,34 @@ import { EstudanteHomePage } from '../pages/estudante-home/estudante-home';
 })
 export class MyApp {
   
-  // rootPage: any = null;
-  rootPage: any = InicialPage;
+  nav: Nav;
+  pages: Array<{ title: string, component: string, openTab?: any }>;
+  rootPage = ProfessorHomePage;
 
   constructor(public platform: Platform, public afAuth: AngularFireAuth) {
 
-    platform.ready().then(() => {
+    // platform.ready().then(() => {
 
-      // método para autenticar o status do usuário
-      afAuth.auth.onAuthStateChanged((user) => {
+    //   // método para autenticar o status do usuário
+    //   afAuth.auth.onAuthStateChanged((user) => {
 
-        if (user != null) { this.rootPage = EstudanteHomePage; } //logado
+    //     if (user != null) { this.rootPage = EstudanteHomePage; } //logado
 
-        else { this.rootPage = InicialPage; } //deslogado
+    //     else { this.rootPage = InicialPage; } //deslogado
 
-      })
+    //   })
 
-    });
+    // });
 
+    this.pages = [
+      { title: 'Ativities', component: 'AtividadesCadPage', openTab: 1 },
+      // { title: 'Atividades', component: 'EstudanteAtividadesPage', openTab: 1 } ,
+      // { title: 'Professor', component: 'EstudanteProfessorPage' },
+    ];
+
+  }
+
+  public openPage(page) {
+    this.nav.setRoot(page.component, { openTab: page.openTab });
   }
 }

@@ -19,24 +19,24 @@ export class EstudanteCadPage {
     let nome: string = form.value.nome;
     let email: string = form.value.email;
     let senha: string = form.value.senha;
-    let faculdade: string = form.value.faculdade;
-    let materia: string = form.value.materia;
-    let semestre: string = form.value.materia;
-    let curso: string = form.value.curso;
-    let periodo: string = form.value.perido;
-    let nome_professor: string = form.value.perido;
-    let permissao: boolean = true;
+    // let faculdade: string = form.value.faculdade;
+    // let materia: string = form.value.materia;
+    // let semestre: string = form.value.materia;
+    // let curso: string = form.value.curso;
+    // let periodo: string = form.value.perido;
+    // let nome_professor: string = form.value.perido;
+    // let permissao: boolean = true;
 
     let estudante: any = {
       nome: nome,
       email: email,
-      faculdade: faculdade,
-      materia: materia,
-      semestre: semestre,
-      curso: curso,
-      periodo: periodo,
-      nome_professor: nome_professor,
-      permissao: permissao
+      // faculdade: faculdade,
+      // materia: materia,
+      // semestre: semestre,
+      // curso: curso,
+      // periodo: periodo,
+      // nome_professor: nome_professor,
+      // permissao: permissao
     }
 
     let result = await this.afAuth.auth.createUserWithEmailAndPassword(email, senha);

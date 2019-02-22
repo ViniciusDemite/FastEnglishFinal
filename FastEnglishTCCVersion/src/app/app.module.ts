@@ -8,6 +8,9 @@ import { InicialPage } from '../pages/inicial/inicial';
 import { EstudanteCadPage } from '../pages/estudante-cad/estudante-cad';
 import { EstudanteHomePage }  from '../pages/estudante-home/estudante-home';
 import { ProfessorLoginPage } from '../pages/professor-login/professor-login';
+import { ProfessorCadPage } from "../pages/professor-cad/professor-cad";
+import { ProfessorHomePage } from "../pages/professor-home/professor-home";
+import { AtividadesCadPage } from "../pages/atividades-cad/atividades-cad";
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -38,7 +41,10 @@ const config = {
     InicialPage,
     EstudanteCadPage,
     EstudanteHomePage,
-    ProfessorLoginPage
+    ProfessorLoginPage,
+    ProfessorCadPage,
+    ProfessorHomePage,
+    AtividadesCadPage,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +63,10 @@ const config = {
     InicialPage,
     EstudanteCadPage,
     EstudanteHomePage,
-    ProfessorLoginPage
-    
+    ProfessorLoginPage,
+    ProfessorCadPage,
+    ProfessorHomePage,
+    AtividadesCadPage,
   ],
   providers: [
     StatusBar,
