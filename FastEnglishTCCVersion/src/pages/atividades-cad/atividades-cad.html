@@ -65,13 +65,19 @@
         <ion-label id="active" fixed>
           Audio
         </ion-label>
-        <ion-icon name="mic" item-end color="primary" (click)="cad_audio()" required></ion-icon>
+        <ion-icon name="mic" item-end color="primary" (click)="star_audio()" *ngIf="!recording"></ion-icon>
+        <ion-icon name="square" item-end color="primary" (click)="stop_audio()" *ngIf="recording"></ion-icon>
+      </ion-item>
+
+      <ion-item *ngIf="recorded">
+        <ion-label id="play_audio" fixed>Play audio</ion-label>
+        <ion-icon name="play" item-end color="primary" (click)="play_audio()" *ngIf="recording"></ion-icon>
       </ion-item>
   
     </ion-list>
   
     <ion-buttons>
-      <button type="submit" no-margin block outline round ion-button color="secondary">Register</button>
+      <button type="submit" no-margin block outline round ion-button color="secondary" *ngIf="recorded">Register</button>
     </ion-buttons>
   
   </form>

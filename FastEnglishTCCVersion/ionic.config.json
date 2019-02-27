@@ -1,5 +1,7 @@
 {
   "name": "FastEnglishTCCVersion",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
