@@ -60,5 +60,9 @@ ion-content {
 
 .cards {
         border-radius: 15px;
-        box-shadow: 0 3px 6px #000000;
+        border: 1px solid #ccc;
+        box-shadow: map-get($map: $shadows, $key: card);
+}
+.card-title {
+    text-shadow: map-get($map: $shadows, $key: title)
 }

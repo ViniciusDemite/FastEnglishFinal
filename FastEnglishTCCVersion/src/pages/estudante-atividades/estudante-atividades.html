@@ -1,18 +1,62 @@
-<!--
-  Generated template for the EstudanteAtividadesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>estudanteAtividades</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Your Activities</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid>
+    <ion-list *ngFor='let a of lista | async'>
+      <ion-card mode="md" class="cards" *ngIf="a.ativo === true">
+      
+        <ion-card-header>
+          <ion-card-title text-center text-uppercase color="primary" class="card-title">
+            {{a.nome}}
+          </ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <ion-row text-center>
+            
+            <ion-col class="col-6">
+              <p>Post Date <span class="color-info">{{a.dataPostada}}</span></p>
+            </ion-col>
+      
+            <ion-col class="col-6">
+              <p>Drop Date <span class="color-info">{{a.dataEntrega}}</span></p>
+            </ion-col>
+      
+            <ion-col class="col-12">
+              <p>Reply Time <span class="color-info">{{a.time}}</span></p>
+            </ion-col>
+      
+            <ion-col class="col-12">
+              <p margin>{{a.descricao}}</p>
+              <button type="button" ion-button text-uppercase block round color="secondary">
+                awnser activity
+              </button>
+            </ion-col>
 
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- <ion-card class="cards" *ngIf="a.ativo === false">
+        <ion-card-header>
+
+          <ion-card-title text-center color="primary" class="card-title">
+            There is no activity yet
+          </ion-card-title>
+
+        </ion-card-header>
+        <ion-card-content>
+          
+        </ion-card-content>
+      </ion-card> -->
+
+    </ion-list>
+  </ion-grid>
 </ion-content>

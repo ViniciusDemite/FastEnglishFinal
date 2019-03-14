@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
-/**
- * Generated class for the EstudanteAtividadesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-estudante-atividades',
   templateUrl: 'estudante-atividades.html',
 })
 export class EstudanteAtividadesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  public lista: Observable<any>;
+  public exiteDocumentos;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EstudanteAtividadesPage');
+  constructor(public navCtrl: NavController, public db: AngularFirestore, public afAuth: AngularFireAuth) {
+
+    this.lista = db.collection('atividades').valueChanges();
+
   }
 
 }

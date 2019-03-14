@@ -54,7 +54,9 @@ export class ProfessorLoginPage {
     let senha: string = form.value.senha;
 
     this.afAuth.auth.signInWithEmailAndPassword(email, senha)
-      .then(() => { this.navCtrl.push(ProfessorHomePage); })
+      .then(() => { 
+        // this.navCtrl.push(ProfessorHomePage); 
+      })
       .catch(() => { alert('User or Password not found') });
   }
 

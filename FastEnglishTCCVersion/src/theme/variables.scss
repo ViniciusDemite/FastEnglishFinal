@@ -43,6 +43,11 @@ $colors: (
   dark:       #222
 );
 
+$shadows: ( 
+  card: 0 3px 6px rgba(0, 0, 0, 0.466),
+  title: 0 3px 6px rgba(0, 0, 0, 0.28)
+);
+
 
 // App iOS Variables
 // --------------------------------------------------

@@ -12,7 +12,7 @@ import { InicialPage } from '../pages/inicial/inicial';
 })
 export class MyApp {
   
-  @ViewChild('content') nav: Nav;
+  @ViewChild(Nav) nav: Nav;
   pages: Array<{ icon: string, title: string, component: string }>;
   rootPage: any = InicialPage;
 
@@ -23,7 +23,7 @@ export class MyApp {
       afAuth.auth.onAuthStateChanged((user) => {
 
         if (user != null) {
-          this.rootPage = EstudanteHomePage;
+          this.rootPage = ProfessorHomePage;
         } else {
           this.rootPage = InicialPage;
         }
@@ -33,7 +33,7 @@ export class MyApp {
       this.pages = [
         { icon: 'clipboard', title: 'Ativities', component: 'AtividadesCadPage' },
         { icon: 'person', title: 'Profile', component: 'ProfessorProfilePage' } ,
-        { icon: 'people', title: 'Students', component: 'ProfessorEstudantesPage' },
+        // { icon: 'people', title: 'Students', component: 'ProfessorEstudantesPage' },
       ];
 
     });
@@ -41,6 +41,11 @@ export class MyApp {
   }
 
   public openPage(page) {
-    this.nav.setRoot(page.component);
+    // this.nav.setRoot(page.component);
+    this.rootPage = page.component;
+  }
+
+  public logout(): void {
+    this.afAuth.auth.signOut();
   }
 }
