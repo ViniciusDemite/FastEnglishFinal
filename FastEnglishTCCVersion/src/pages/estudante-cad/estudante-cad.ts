@@ -16,7 +16,7 @@ export class EstudanteCadPage {
 
   public async cad_estudante(form: NgForm) {
 
-    let nome: string = form.value.nome;
+    let nome: string = form.value.name;
     let email: string = form.value.email;
     let senha: string = form.value.senha;
     // let faculdade: string = form.value.faculdade;
@@ -29,7 +29,7 @@ export class EstudanteCadPage {
 
     let estudante: any = {
       nome: nome,
-      email: email,
+      email: email
       // faculdade: faculdade,
       // materia: materia,
       // semestre: semestre,

@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button icon-only menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Student Area</ion-title>
     <ion-buttons end>
 
@@ -14,10 +11,44 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
+    <ion-grid class="h-100">
+      <ion-row justify-content-center align-items-center class="h-100">
+        <ion-card mode="md" class="cards"> <!--color muda a cor do card-->
 
+          <ion-card-header text-center>
+            <ion-card-title no-margin color="dark">Student Areas</ion-card-title>
+          </ion-card-header>
 
+          <ion-card-content>
+            <button type="button" ion-button block round outline color="primary" (click)="goto_estudante_atividades()">
+              <ion-icon name="clipboard" color="primary" padding-right></ion-icon>
+              Activities
+            </button>
+            <button type="button" ion-button block round outline color="secondary" (click)="goto_estudante_profile()">
+              <ion-icon name="person" color="secondary" padding-right></ion-icon>
+              Profile
+            </button>
+          </ion-card-content>
 
+        </ion-card>
+      </ion-row>
+    </ion-grid>
+
+  <!-- <ion-fab right bottom>
+    <button ion-fab color="light">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab>
+        <ion-icon name="add" (click)="criar()"></ion-icon>
+      </button>
+      <button ion-fab>
+        <ion-icon name="checkbox-outline" (click)="corrigir()"></ion-icon>
+      </button>
+  
+    </ion-fab-list>
+  </ion-fab> -->
 
 </ion-content>

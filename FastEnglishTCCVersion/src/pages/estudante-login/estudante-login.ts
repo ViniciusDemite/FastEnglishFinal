@@ -92,7 +92,7 @@ export class EstudanteLoginPage {
         alert('User or Password not found');
       });
 
-    this.navCtrl.push(EstudanteHomePage);
+    // this.navCtrl.push(EstudanteHomePage);
   }
 
 }

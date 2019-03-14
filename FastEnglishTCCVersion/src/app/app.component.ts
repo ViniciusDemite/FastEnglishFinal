@@ -14,27 +14,21 @@ export class MyApp {
   
   @ViewChild('content') nav: Nav;
   pages: Array<{ icon: string, title: string, component: string }>;
-  rootPage = ProfessorHomePage;
+  rootPage: any = InicialPage;
 
   constructor(public platform: Platform, public afAuth: AngularFireAuth) {
 
     platform.ready().then(() => {
 
-      // afAuth.auth.onAuthStateChanged((user) => {
+      afAuth.auth.onAuthStateChanged((user) => {
 
-      //   if (user != null) {
+        if (user != null) {
+          this.rootPage = EstudanteHomePage;
+        } else {
+          this.rootPage = InicialPage;
+        }
 
-      //     if (!user.uid.check) {
-      //       this.rootPage = ProfessorHomePage;
-      //     } else {
-      //       this.rootPage = EstudanteHomePage;
-      //     }
-
-      //   } else {
-      //     this.rootPage = InicialPage;
-      //   }
-
-      // })
+      })
 
       this.pages = [
         { icon: 'clipboard', title: 'Ativities', component: 'AtividadesCadPage' },

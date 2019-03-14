@@ -11,6 +11,8 @@ import { ProfessorLoginPage } from '../pages/professor-login/professor-login';
 import { ProfessorCadPage } from "../pages/professor-cad/professor-cad";
 import { ProfessorHomePage } from "../pages/professor-home/professor-home";
 import { AtividadesCadPage } from "../pages/atividades-cad/atividades-cad";
+import { EstudanteAtividadesPage } from "../pages/estudante-atividades/estudante-atividades";
+import { EstudanteProfilePage } from "../pages/estudante-profile/estudante-profile";
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -45,6 +47,8 @@ const config = {
     ProfessorCadPage,
     ProfessorHomePage,
     AtividadesCadPage,
+    EstudanteAtividadesPage,
+    EstudanteProfilePage
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,8 @@ const config = {
     ProfessorCadPage,
     ProfessorHomePage,
     AtividadesCadPage,
+    EstudanteAtividadesPage,
+    EstudanteProfilePage
   ],
   providers: [
     StatusBar,

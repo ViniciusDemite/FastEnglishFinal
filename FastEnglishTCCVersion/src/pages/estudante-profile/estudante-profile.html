@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Student Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="h-100">
+    <ion-row justify-content-start align-items-start class="h-100">
+
+      <ion-col class="col-12">
+        <h2 text-center no-padding>
+          Personal Data
+        </h2>
+        
+        <p text-center no-padding>
+          You can change your personal information here
+        </p>
+
+        <small text-center text-lowercase no-padding class="c-danger">
+          by changing your e-mail you'll have to provide your login data again
+        </small>
+
+        <form method="post" #form="ngForm" (submit)="editar_dados_estudante(form)">
+        
+          <ion-list inset no-lines>
+        
+            <ion-item>
+              <ion-label for="name" floating>
+                <ion-icon name="person" color="primary"></ion-icon>
+                Name
+              </ion-label>
+              <ion-input name="nome" id="name" type="text" [(ngModel)]="usuario.nome"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label for="email" floating>
+                <ion-icon name="mail" color="primary"></ion-icon>
+                E-mail
+              </ion-label>
+              <ion-input name="email" id="email" type="email" [(ngModel)]="usuario.email"></ion-input>
+            </ion-item>
+        
+          </ion-list>
+        
+          <ion-buttons>
+            <button type="submit" ion-button block outline round no-margin color="primary">
+              Change
+            </button>
+          </ion-buttons>
+        
+        </form>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
