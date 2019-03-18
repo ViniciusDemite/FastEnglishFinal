@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Media, MediaObject } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
+import { FirebaseStorage } from '@angular/fire';
+import firebase from 'firebase';
 
 @Component({
   selector: 'page-atividades-cad',
@@ -17,9 +19,11 @@ export class AtividadesCadPage {
   public fileName: string;
   public audio: MediaObject;
   public audioList: any[] = [];
+  public storageRef = firebase.storage().ref();
+
 
   constructor(public navCtrl: NavController, public db: AngularFirestore,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, private media: Media, private file: File, private storage: FirebaseStorage) {
   }
 
   public cad_atividade(form: NgForm): void {
@@ -44,6 +48,11 @@ export class AtividadesCadPage {
 
       this.db.collection('atividades').add(atividade)
         .then(() => {
+
+          // this.storageRef.child(this.fileName);
+          // this.storageRef.child(this.filePath);
+          this.storageRef.put(this.filePath);
+
           this.navCtrl.pop();
         })
         .catch((error) => {
@@ -63,49 +72,23 @@ export class AtividadesCadPage {
     
   }
 
-  // private media: Media
-  // private file: File
-  // public start_audio(): void {
-  //   this.fileName = 'record' + new Date().getTime() + '.3gp';
-  //   this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
-  //   this.audio = this.media.create(this.filePath);
-  //   this.audio.startRecord();
-  //   this.recording = true;
-  // }
+  public gravar(): void {
+    this.fileName = 'record' + new Date().getTime + '.3gp';
+    this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
+    this.audio = this.media.create(this.filePath);
+    this.audio.startRecord();
+    this.recording = true;
+  }
 
-  // public stop_audio(): void {
-  //   this.audio.stopRecord();
-  //   // let data = { filename: this.fileName };
-  //   // this.audioList.push(data);
-  //   // localStorage.setItem("audiolist", JSON.stringify(this.audioList));
-  //   this.recording = false;
-  //   this.recorded = true;
-  // }
+  public pararGravar() {
+    this.audio.stopRecord();
+    this.recording = false;
+    this.recorded = true;
+  }
 
-  // public play_audio(): void {
-  //   this.audio.play();
-  //   this.audio.setVolume(1.0);
-  // }
-
-  /************** Exemplo funcional sauvar audio *********************/
-  // Uri uriAudio = Uri.fromFile(new File(audioFilePath).getAbsoluteFile());
-  // final StorageReference filePath = ref.child("Education/image").child(uriImage.getLastPathSegment());
-  // final StorageReference audioRef = ref.child("Education/audio").child(uriAudio.getLastPathSegment());
-
-
-  // // on success upload audio
-  // audioRef.putFile(uriAudio).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot> () {
-  // @Override
-  // public void onSuccess(final UploadTask.TaskSnapshot audioSnapshot) {
-
-  //   //upload image
-  //   filePath.putFile(uriImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-  //                           @Override
-  //   public void onSuccess(final UploadTask.TaskSnapshot imageSnapshot) {
-
-  //     mProgress.dismiss();
-
-  //     @SuppressWarnings("VisibleForTests") Uri audioUrl = audioSnapshot.getDownloadUrl();
-  //     @SuppressWarnings("VisibleForTests") Uri imageUrl = imageSnapshot.getDownloadUrl();
+  public reproduzir(): void {
+    this.audio.play();
+    this.audio.setVolume(1.0);
+  }
 
 }
