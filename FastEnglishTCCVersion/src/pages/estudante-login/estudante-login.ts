@@ -86,13 +86,13 @@ export class EstudanteLoginPage {
           message: 'Welcome Student',
           buttons: ['OK']
         });
-        return alert.present();
+        alert.present();
+
+        this.navCtrl.push(EstudanteHomePage);
       })
       .catch(() => {
         alert('User or Password not found');
       });
-
-    // this.navCtrl.push(EstudanteHomePage);
   }
 
 }
