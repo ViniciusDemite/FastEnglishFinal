@@ -11,12 +11,21 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class EstudanteAtividadesPage {
 
   public lista: Observable<any>;
-  public exiteDocumentos;
+  // public exiteDocumentos;
+  public atividade: any = {};
 
   constructor(public navCtrl: NavController, public db: AngularFirestore, public afAuth: AngularFireAuth) {
 
     this.lista = db.collection('atividades').valueChanges();
 
+  }
+
+  public responder_atividade(id: string): void {
+    let sub = this.db.collection('atividades').doc(id).valueChanges()
+    .subscribe((atv) => {
+      this.atividade = atv;
+      sub.unsubscribe();
+    })
   }
 
 }

@@ -40,8 +40,6 @@ export class ProfessorCadPage {
       });
       alert.present();
 
-      this.navCtrl.push(ProfessorHomePage);
-
     } else {
 
       const alert = this.alertCtrl.create({

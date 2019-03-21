@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { EstudanteAtividadesPage } from '../estudante-atividades/estudante-atividades';
 import { EstudanteProfilePage } from '../estudante-profile/estudante-profile';
@@ -11,11 +11,33 @@ import { EstudanteProfilePage } from '../estudante-profile/estudante-profile';
 })
 export class EstudanteHomePage {
 
-  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public alertCtrl: AlertController) {
   }
 
   public logout(): void {
-    this.afAuth.auth.signOut();
+
+    const prompt = this.alertCtrl.create({
+
+      title: 'Logout',
+      message: 'Are you sure you want to end your session?',
+
+      buttons: [
+
+        {
+          text: 'Back'
+        },
+
+        {
+          text: 'Proceed',
+          handler: () => {
+            this.afAuth.auth.signOut();
+          }
+        }
+
+      ]
+
+    })
+    prompt.present();
   }
 
   public goto_estudante_atividades(): void {

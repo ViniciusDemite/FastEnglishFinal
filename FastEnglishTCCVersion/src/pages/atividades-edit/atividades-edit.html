@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Active Edition</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row text-center>
+  
+      <ion-col class="col-12">
+  
+        <form method="post" #form="ngForm" (submit)="editar_atividade(form)">
+  
+          <ion-list no-lines>
+  
+            <ion-item>
+              <ion-label for="name" floating>
+                <ion-icon name="brush" color="primary"></ion-icon>
+                Activity Title
+              </ion-label>
+              <ion-input name="nome" id="name" type="text" [(ngModel)]="atividades.nome"></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label for="post_date" fixed>
+                <ion-icon name="calendar" color="primary"></ion-icon>
+                Post date
+              </ion-label>
+              <ion-datetime displayFormat="DD/MMM/YYYY" name="dataPostada" id="post_date" [(ngModel)]="atividades.dataPostada"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label id="drop_date" fixed>
+                <ion-icon name="calendar" color="primary"></ion-icon> Drop date
+              </ion-label>
+              <ion-datetime displayFormat="DD/MMM/YYYY" name="dataEntrega" id="drop_date" [(ngModel)]="atividades.dataEntrega"></ion-datetime>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label id="description" floating>
+                <ion-icon name="text" color="primary"></ion-icon> Description
+              </ion-label>
+              <ion-textarea name="descricao" id="description" type="text" rows="3" [(ngModel)]="atividades.descricao"></ion-textarea>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label id="active" fixed>
+                Active
+              </ion-label>
+              <ion-checkbox name="ativa" id="active" color="primary11" item-end [(ngModel)]="atividades.ativo"></ion-checkbox>
+            </ion-item>
+  
+          </ion-list>
+  
+          <ion-buttons>
+            <button type="submit" ion-button block outline round no-margin color="primary">
+              Change
+            </button>
+          </ion-buttons>
+  
+        </form>
+  
+      </ion-col>
+  
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

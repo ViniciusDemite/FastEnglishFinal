@@ -1,0 +1,90 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Professor Activities</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-list *ngFor='let a of lista | async'>
+      <ion-card mode="md" class="cards">
+  
+        <ion-card-header>
+          <ion-card-title text-center text-uppercase color="primary" class="card-title">
+            {{a.nome}}
+          </ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-row text-center>
+  
+            <ion-col class="col-4">
+              <p>
+                <strong>Post Date</strong> <br />
+                <span class="color-info">{{a.dataPostada}}</span>
+              </p>
+            </ion-col>
+  
+            <ion-col class="col-4">
+              <p>
+                <strong>Drop Date</strong> <br />
+                <span class="color-info">{{a.dataEntrega}}</span>
+              </p>
+            </ion-col>
+
+            <ion-col class="col-4" *ngIf="a.ativo === true">
+              <strong>Activity Status</strong> <br />
+              <span class="color-info">Active</span>
+            </ion-col>
+
+            <ion-col class="col-4" *ngIf="a.ativo === false">
+              <strong>Activity Status</strong> <br />
+              <span class="color-info">Not Active</span>
+            </ion-col>
+  
+          </ion-row>
+
+          <ion-row text-center *ngIf="a.descricao != ''">
+            <ion-col class="col-12">
+              <p margin class="desc-card">{{a.descricao}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row text-center *ngIf="a.descricao === ''">
+            <ion-col class="col-12">
+              <p margin class="desc-card">
+                <strong>There isn't a description for this aticity</strong>
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col class="col-6">
+              <button type="button" ion-button text-uppercase block round color="danger" (click)="apagar_atividade(a.id)">
+                delete activity
+              </button>
+            </ion-col>
+
+            <ion-col class="col-6">
+              <button type="button" ion-button text-uppercase block round color="secondary" (click)="goto_edit_atividades(a.id)">
+                edit activity
+              </button>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </ion-grid>
+
+  <ion-fab right bottom>
+    <button ion-fab type="button" color="light" (click)="goto_atividades_cad()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

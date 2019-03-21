@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'page-estudante-profile',
-  templateUrl: 'estudante-profile.html',
+  selector: 'page-professor-profile',
+  templateUrl: 'professor-profile.html',
 })
-export class EstudanteProfilePage {
+export class ProfessorProfilePage {
 
   public usuario: any = {};
 
   constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public db: AngularFirestore, public alertCtrl: AlertController) {
-
-    // let user = this.afAuth.auth.currentUser;
 
     let sub = this.db.collection('usuarios').doc(this.afAuth.auth.currentUser.uid).valueChanges()
       .subscribe((user) => {
@@ -24,17 +22,17 @@ export class EstudanteProfilePage {
 
   }
 
-  public async editar_dados_estudante(form: NgForm) {
+  public async editar_atividade(form: NgForm) {
     let nome = form.value.nome;
     let email = form.value.email;
 
     let user = this.afAuth.auth.currentUser;
     let credencial: any = null;
 
-    await this.db.collection('usuarios').doc(user.uid).update({nome: nome})
+    await this.db.collection('usuarios').doc(user.uid).update({ nome: nome })
       .then(() => {
 
-        if(email != user.email){
+        if (email != user.email) {
 
           user.updateEmail(email).then(() => {
 
@@ -50,11 +48,11 @@ export class EstudanteProfilePage {
 
             this.afAuth.auth.signOut();
           }) //alterar o e-mail do usuário
-          .catch((error) => {
-            alert(error);
-          })
+            .catch((error) => {
+              alert(error);
+            })
 
-        }else {
+        } else {
 
           const alert = this.alertCtrl.create({
             title: 'Personal Information',
@@ -69,10 +67,9 @@ export class EstudanteProfilePage {
         }
 
       })
-      .catch(function(error) {
+      .catch(function (error) {
         alert(error);
       });
-
   }
 
 }

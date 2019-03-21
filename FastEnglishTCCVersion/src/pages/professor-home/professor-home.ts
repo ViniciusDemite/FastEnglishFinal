@@ -1,7 +1,9 @@
+
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AtividadesCadPage } from '../atividades-cad/atividades-cad';
+import { ProfessorAtividadesPage } from '../professor-atividades/professor-atividades';
+import { ProfessorProfilePage } from '../professor-profile/professor-profile';
 
 @Component({
   selector: 'page-professor-home',
@@ -9,15 +11,41 @@ import { AtividadesCadPage } from '../atividades-cad/atividades-cad';
 })
 export class ProfessorHomePage {
 
-  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public alertCtrl: AlertController) {
   }
 
   public logout(): void {
-    this.afAuth.auth.signOut();
+
+    const prompt = this.alertCtrl.create({
+      
+      title: 'Logout',
+      message: 'Are you sure you want to end your session?',
+
+      buttons: [
+
+        {
+          text: 'Back'
+        },
+
+        {
+          text: 'Proceed',
+          handler: () => {
+            this.afAuth.auth.signOut();
+          }
+        }
+
+      ]
+
+    })
+    prompt.present();
   }
 
-  public goto_atividades_cad(): void {
-    this.navCtrl.push(AtividadesCadPage);
+  public goto_professor_atividades(): void {
+    this.navCtrl.push(ProfessorAtividadesPage);
+  }
+
+  public goto_professor_profile(): void {
+    this.navCtrl.push(ProfessorProfilePage);
   }
 
 }

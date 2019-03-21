@@ -13,7 +13,9 @@ import { ProfessorHomePage } from "../pages/professor-home/professor-home";
 import { AtividadesCadPage } from "../pages/atividades-cad/atividades-cad";
 import { EstudanteAtividadesPage } from "../pages/estudante-atividades/estudante-atividades";
 import { EstudanteProfilePage } from "../pages/estudante-profile/estudante-profile";
-
+import { ProfessorAtividadesPage } from "../pages/professor-atividades/professor-atividades";
+import { ProfessorProfilePage } from "../pages/professor-profile/professor-profile";
+import { AtividadesEditPage } from "../pages/atividades-edit/atividades-edit";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -48,7 +50,10 @@ const config = {
     ProfessorHomePage,
     AtividadesCadPage,
     EstudanteAtividadesPage,
-    EstudanteProfilePage
+    EstudanteProfilePage,
+    ProfessorAtividadesPage,
+    ProfessorProfilePage,
+    AtividadesEditPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,10 @@ const config = {
     ProfessorHomePage,
     AtividadesCadPage,
     EstudanteAtividadesPage,
-    EstudanteProfilePage
+    EstudanteProfilePage,
+    ProfessorAtividadesPage,
+    ProfessorProfilePage,
+    AtividadesEditPage
   ],
   providers: [
     StatusBar,
