@@ -4,6 +4,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ProfessorAtividadesPage } from '../professor-atividades/professor-atividades';
 import { ProfessorProfilePage } from '../professor-profile/professor-profile';
+import { InicialPage } from '../inicial/inicial';
 
 @Component({
   selector: 'page-professor-home',
@@ -31,6 +32,7 @@ export class ProfessorHomePage {
           text: 'Proceed',
           handler: () => {
             this.afAuth.auth.signOut();
+            this.navCtrl.setRoot(InicialPage);
           }
         }
 

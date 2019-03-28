@@ -18,12 +18,10 @@ export class AtividadesCadPage {
   public fileName: string;
   public audio: MediaObject;
   public audioList: any[] = [];
-  public storageRef = firebase.storage().ref();
-  public audioRef;
-  public audioPathRef;
+  public referencia = firebase.storage().ref();
 
 
-  constructor(public navCtrl: NavController, public db: AngularFirestore, public alertCtrl: AlertController, public media: Media, public file: File) {
+  constructor(public navCtrl: NavController, public db: AngularFirestore, public alertCtrl: AlertController, private media: Media, private file: File) {
   }
 
   public cad_atividade(form: NgForm): void {
@@ -48,9 +46,8 @@ export class AtividadesCadPage {
 
         this.db.collection('atividades').doc(ref.id).update({ id: ref.id });
 
-        // this.storageRef.child(this.fileName);
-        // this.storageRef.child(this.filePath);
-        // this.storageRef.put(this.filePath);
+        this.referencia.child(this.filePath + this.fileName); // referencia para o caminho do arquivo
+        this.referencia.put(this.audio); // enviar o arquivo
 
         this.navCtrl.pop();
       })
@@ -62,19 +59,9 @@ export class AtividadesCadPage {
 
   public gravar(): void {
     this.fileName = 'record' + new Date().getTime + '.3gp';
-    this.audioRef = this.storageRef.child(this.fileName);
     this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
-    this.audioPathRef = this.storageRef.child(this.filePath);
     this.audio = this.media.create(this.filePath);
     this.audio.startRecord();
-    this.storageRef.storage.ref().put(this.audio)
-      .then(() => {
-        alert('Áudio no storage');
-        this.recording = true;
-      })
-      .catch((error) => {
-        alert(error);
-      })
   }
 
   public pararGravar() {

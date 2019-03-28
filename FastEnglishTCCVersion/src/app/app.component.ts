@@ -21,32 +21,19 @@ export class MyApp {
 
   constructor(public platform: Platform, public afAuth: AngularFireAuth, public db: AngularFirestore) {
 
-    /*platform.ready().then(() => {
+    // platform.ready().then(() => {
 
-      afAuth.auth.onAuthStateChanged((user) => {
+    //   afAuth.auth.onAuthStateChanged((user) => {
 
-        if (user != null) {
+    //     if (user === null) {
 
-          this.rootPage = EstudanteHomePage;
+    //       this.rootPage = InicialPage;
           
-          let sub = this.db.collection('usuarios').doc<any>(user.uid).valueChanges()
-          .subscribe((_user) => {
-            this.usuario = _user.identificador; 
-            sub.unsubscribe();
-          })
+    //     }
 
-          if (this.usuario == 'admProf2019') {
-            this.rootPage = ProfessorHomePage;
-          } else {
-            this.rootPage = EstudanteHomePage;
-          }
-        } else {
-          this.rootPage = InicialPage;
-        }
+    //   })
 
-      })
-
-    });*/
+    // });
 
   }
 }

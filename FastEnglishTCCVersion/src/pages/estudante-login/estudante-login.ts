@@ -44,37 +44,6 @@ export class EstudanteLoginPage {
     prompt.present();
   } // fechamento - prompt
 
-  // public recuperar_senha(form: NgForm): void{
-
-  //   let email: string = form.value.email;
-
-  //   let sub = this.db.collection('usuarios').doc<any>(this.afAuth.auth.currentUser.uid).valueChanges().subscribe((dadosUser) => {
-
-  //     let email_estudante: string = dadosUser.email;
-
-  //     if (email_estudante === email) {
-
-  //       this.afAuth.auth.sendPasswordResetEmail(email);
-
-  //       const alert = this.alertCtrl.create({
-  //         title: 'E-mail sent',
-  //         message: 'An reset password e-mail have been sent to your e-mail adress.',
-  //         buttons: ['OK']
-  //       });
-  //       alert.present();
-
-  //     } else {
-  //       const alert = this.alertCtrl.create({
-  //         title: 'Invalid e-mail',
-  //         message: 'Your e-mail is not valid, please check if you typed it correctly.',
-  //         buttons: ['Back']
-  //       });
-  //       alert.present();
-  //     }
-  //     sub.unsubscribe();
-  //   });
-  // }
-
   public login_estudante(form: NgForm): void {
 
     let email = form.value.email;
@@ -88,7 +57,7 @@ export class EstudanteLoginPage {
         });
         alert.present();
 
-        this.navCtrl.push(EstudanteHomePage);
+        this.navCtrl.setRoot(EstudanteHomePage);
       })
       .catch(() => {
         alert('User or Password not found');

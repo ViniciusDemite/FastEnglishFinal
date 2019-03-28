@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { EstudanteAtividadesPage } from '../estudante-atividades/estudante-atividades';
 import { EstudanteProfilePage } from '../estudante-profile/estudante-profile';
+import { InicialPage } from '../inicial/inicial';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class EstudanteHomePage {
           text: 'Proceed',
           handler: () => {
             this.afAuth.auth.signOut();
+            this.navCtrl.setRoot(InicialPage);
           }
         }
 
