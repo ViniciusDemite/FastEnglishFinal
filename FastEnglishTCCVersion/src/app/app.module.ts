@@ -27,6 +27,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 //importação do modulo que vai permitir que relizamos cadastro no banco pelo app
 import {FormsModule} from '@angular/forms';
+import { File } from "@ionic-native/file";
+import { Media } from "@ionic-native/media";
 
 // Initialize Firebase
 const config = {
@@ -85,7 +87,9 @@ const config = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    File,
+    Media,
   ]
 })
 export class AppModule {}

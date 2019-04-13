@@ -41,19 +41,19 @@ export class AtividadesCadPage {
       ativo:ativa
     }
 
+    this.referencia.child(this.filePath + this.fileName); // referencia para o caminho do arquivo
+    this.referencia.put(this.audio); // enviar o arquivo
+
     this.db.collection('atividades').add(atividade)
       .then((ref) => {
 
         this.db.collection('atividades').doc(ref.id).update({ id: ref.id });
 
-        this.referencia.child(this.filePath + this.fileName); // referencia para o caminho do arquivo
-        this.referencia.put(this.audio); // enviar o arquivo
-
         this.navCtrl.pop();
       })
-      .catch((error) => {
-        alert(error);
-      });
+      // .catch((error) => {
+      //   alert(error);
+      // });
     
   }
 
@@ -62,6 +62,7 @@ export class AtividadesCadPage {
     this.filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + this.fileName;
     this.audio = this.media.create(this.filePath);
     this.audio.startRecord();
+    this.recording = true;
   }
 
   public pararGravar() {

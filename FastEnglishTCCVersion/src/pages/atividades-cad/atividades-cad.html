@@ -52,16 +52,16 @@
       </ion-item>
 
       <ion-item>
-        <ion-label id="active" fixed>
+        <ion-label id="mic" fixed>
           Audio
         </ion-label>
-        <ion-icon name="mic" item-end color="primary" (click)="gravar()" *ngIf="!recording"></ion-icon>
+        <ion-icon name="mic" id="mic" item-end color="primary" (click)="gravar()" *ngIf="!recording"></ion-icon>
         <ion-icon name="square" item-end color="primary" (click)="pararGravar()" *ngIf="recording"></ion-icon>
       </ion-item>
 
       <ion-item *ngIf="recorded">
         <ion-label id="play_audio" fixed>Play Audio</ion-label>
-        <ion-icon name="play" item-end color="primary" (click)="reproduzir()" *ngIf="recording"></ion-icon>
+        <ion-icon name="play" item-end color="primary" (click)="reproduzir()" *ngIf="recorded"></ion-icon>
       </ion-item>
   
     </ion-list>

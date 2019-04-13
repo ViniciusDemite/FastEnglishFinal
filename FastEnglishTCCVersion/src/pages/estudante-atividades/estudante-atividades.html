@@ -59,13 +59,21 @@
               <ion-label id="active" fixed>
                 Awnser
               </ion-label>
-              <ion-icon name="mic" item-end color="secondary" (click)="responder_atividade()" *ngIf="!recording"></ion-icon>
+              <ion-icon name="mic" item-end color="secondary" (click)="gravar()" *ngIf="!recording"></ion-icon>
               <ion-icon name="square" item-end color="secondary" (click)="pararGravar()" *ngIf="recording"></ion-icon>
             </ion-item>
             
             <ion-item *ngIf="recorded">
               <ion-label id="play_audio" fixed>Play Awnser</ion-label>
-              <ion-icon name="play" item-end color="secondary" (click)="reproduzir_resposta()" *ngIf="recording"></ion-icon>
+              <ion-icon name="play" item-end color="secondary" (click)="reproduzir()" *ngIf="recorded"></ion-icon>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <ion-item>
+              <ion-buttons>
+                <button type="submit" no-margin block round ion-button color="secondary" (submit)="responder();">Send Awnser</button>                
+              </ion-buttons>
             </ion-item>
           </ion-row>
 
