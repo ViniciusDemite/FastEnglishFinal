@@ -48,7 +48,7 @@
             <ion-col class="col-4">
               <p>
                 <strong>Play Audio</strong> <br />
-                <ion-icon name="play" item-end color="secondary" (click)="reproduzir_audio()"></ion-icon>
+                <ion-icon name="play" item-end color="secondary" (click)="audioAtividade()"></ion-icon>
               </p>
             </ion-col>
 
@@ -72,7 +72,7 @@
           <ion-row>
             <ion-item>
               <ion-buttons>
-                <button type="submit" no-margin block round ion-button color="secondary" (submit)="responder();">Send Awnser</button>                
+                <button type="submit" no-margin block round ion-button color="secondary" (submit)="responder(a.id);">Send Awnser</button>                
               </ion-buttons>
             </ion-item>
           </ion-row>
